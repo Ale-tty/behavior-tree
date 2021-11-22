@@ -17,3 +17,6 @@ func _physics_process(delta):
 	else:
 		_velocity = Vector2.ZERO;
 	move_and_collide(_velocity);
+
+
+

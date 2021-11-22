@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Screens/ChangeSceneButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Screens/QuitButton.tscn" type="PackedScene" id=2]
+
+[node name="MainScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.248
+anchor_right = 0.5
+anchor_bottom = 0.248
+margin_left = -40.2043
+margin_top = -8.20427
+margin_right = 42.7957
+margin_bottom = 5.79573
+text = "Titulo Jsjsjsjs"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -87.0
+margin_top = -33.0
+margin_right = 81.0
+margin_bottom = 46.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChangeSceneButton" parent="VBoxContainer" instance=ExtResource( 1 )]
+next_scene_path = "res://Scenes/Main.tscn"
+
+[node name="QuitButton" parent="VBoxContainer" instance=ExtResource( 2 )]
+
+[connection signal="button_up" from="VBoxContainer/ChangeSceneButton" to="VBoxContainer/ChangeSceneButton" method="_on_button_up"]
+[connection signal="button_up" from="VBoxContainer/QuitButton" to="VBoxContainer/ChangeSceneButton" method="_on_button_up"]

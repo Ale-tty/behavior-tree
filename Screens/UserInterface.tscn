@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Screens/ChangeSceneButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Screens/QuitButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Screens/RetryButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Screens/UserInterface.gd" type="Script" id=7]
+
+[node name="UserInterface" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseOverlay" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.0588235 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseMenu" type="VBoxContainer" parent="PauseOverlay"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -80.0597
+margin_top = -52.9481
+margin_right = 87.9403
+margin_bottom = 26.0519
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainScreenButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 1 )]
+text = "ir a la pantalla principal"
+next_scene_path = "res://Screens/MainScreen.tscn"
+
+[node name="RetryButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 5 )]
+
+[node name="QuitButton" parent="PauseOverlay/PauseMenu" instance=ExtResource( 2 )]
+margin_top = 48.0
+margin_bottom = 68.0
+
+[node name="Title" type="Label" parent="PauseOverlay"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -18.2739
+margin_top = 149.347
+margin_right = 21.7261
+margin_bottom = 163.347
+text = "Pausa"
+
+[connection signal="button_up" from="PauseOverlay/PauseMenu/MainScreenButton" to="PauseOverlay/PauseMenu/MainScreenButton" method="_on_button_up"]
+[connection signal="button_up" from="PauseOverlay/PauseMenu/QuitButton" to="PauseOverlay/PauseMenu/MainScreenButton" method="_on_button_up"]

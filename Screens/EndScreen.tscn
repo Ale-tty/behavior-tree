@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Screens/ChangeSceneButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Screens/QuitButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Screens/ChangeSceneButton.gd" type="Script" id=3]
+[ext_resource path="res://Screens/QuitButton.gd" type="Script" id=4]
+
+[node name="EndScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -20.0
+margin_right = 20.0
+margin_bottom = 14.0
+text = "Terminaste el juego "
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -87.0
+margin_top = -33.0
+margin_right = 81.0
+margin_bottom = 46.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChangeSceneButton" type="Button" parent="VBoxContainer" instance=ExtResource( 1 )]
+margin_right = 168.0
+margin_bottom = 20.0
+text = "Jugar de nuevo jsjsjs"
+script = ExtResource( 3 )
+next_scene_path = "res://Scenes/Main.tscn"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 24.0
+margin_right = 168.0
+margin_bottom = 44.0
+text = "No jugar XD"
+script = ExtResource( 4 )
+
+[connection signal="button_up" from="VBoxContainer/ChangeSceneButton" to="VBoxContainer/ChangeSceneButton" method="_on_button_up"]
+[connection signal="button_up" from="VBoxContainer/QuitButton" to="VBoxContainer/ChangeSceneButton" method="_on_button_up"]

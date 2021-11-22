@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Screens/UserInterface.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Asset/tilesheet_complete.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=4]
 
@@ -117,14 +118,11 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 613.429, 301.947 )
-collision_layer = 2
 collision_mask = 5
 MAX_SPEED = 400
 
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 185.406, 252.152 )
-collision_layer = 4
-collision_mask = 3
 
 [node name="Line2D" type="Line2D" parent="."]
 width = 5.0
@@ -132,3 +130,8 @@ width = 5.0
 [node name="RaycastLine2D" type="Line2D" parent="."]
 width = 2.0
 default_color = Color( 1, 0.4, 0.4, 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="UserInterface" parent="CanvasLayer" instance=ExtResource( 2 )]
